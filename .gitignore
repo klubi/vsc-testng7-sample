@@ -1,0 +1,8 @@
+.gradle
+*.iml
+.idea
+org.eclipse*
+*.class
+
+bin
+build
