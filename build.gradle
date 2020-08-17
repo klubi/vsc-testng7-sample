@@ -12,9 +12,19 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'org.testng', name: 'testng', version: '7.0.0'
+    testCompile group: 'org.springframework', name: 'spring-test', version: '5.2.8.RELEASE'
+    testCompile group: 'org.springframework', name: 'spring-core', version: '5.2.8.RELEASE'
+    testCompile group: 'org.springframework', name: 'spring-context', version: '5.2.8.RELEASE'
+    testCompile group: 'org.testng', name: 'testng', version: '7.3.0'
 }
 
 test {
     useTestNG()
+}
+
+task runSkiptest(type: Test) {
+    useTestNG() {
+        suites 'src/test/resources/testSuite.xml'
+    }
+    testLogging.showStandardStreams = true
 }
